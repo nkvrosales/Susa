@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>susa worldwide</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="moving-bg">
+        <div class="stars"></div>
+    </div>
+
+    <!-- Enter Screen -->
+    <div id="enter-screen">
+        <button id="enter-btn" class="glitch-text" data-text="[ click to enter ]">[ click to enter ]</button>
+    </div>
+
+    <!-- Main Content -->
+    <main id="main-content" class="hidden">
+        <header>
+            <img src="images/susa.webp" alt="susa logo" class="header-logo">
+            <h1 class="logo">susa</h1>
+        </header>
+
+        <section class="roster">
+            <!-- Yuri -->
+            <div class="member" data-member="yuri">
+                <a href="https://www.tiktok.com/@saitan.sumasagi" target="_blank" class="member-link">
+                    <div class="pfp-wrapper">
+                        <img src="images/yuri.webp" alt="yuri" class="pfp">
+                    </div>
+                    <p class="member-name">yuri</p>
+                </a>
+            </div>
+
+            <!-- Taki -->
+            <div class="member" data-member="taki">
+                <a href="https://www.tiktok.com/@yuancuzzz" target="_blank" class="member-link">
+                    <div class="pfp-wrapper">
+                        <img src="images/taki.webp" alt="taki" class="pfp">
+                    </div>
+                    <p class="member-name">taki</p>
+                </a>
+            </div>
+
+            <!-- Kxrl -->
+            <div class="member" data-member="kxrl">
+                <a href="https://www.tiktok.com/@nkvrosales" target="_blank" class="member-link">
+                    <div class="pfp-wrapper">
+                        <img src="images/kxrl.webp" alt="kxrl" class="pfp">
+                    </div>
+                    <p class="member-name">kxrl</p>
+                </a>
+            </div>
+
+            <!-- Chelsea -->
+            <div class="member" data-member="chelsea">
+                <a href="https://www.tiktok.com/@chelseabythesea777" target="_blank" class="member-link">
+                    <div class="pfp-wrapper">
+                        <img src="images/chelsea.webp" alt="chelsea" class="pfp">
+                    </div>
+                    <p class="member-name">chelsea</p>
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <div class="global-links">
+                <a href="https://discord.gg/GmEcz4YaEc" target="_blank">[ discord server ]</a>
+            </div>
+            
+            <p class="credit">© susa 2026 | developed by kxrl</p>
+        </footer>
+
+        <!-- Music Player -->
+        <div id="music-player">
+            <div class="album-art-container">
+                <img src="images/guap.jpg" alt="guap album art" id="album-art">
+            </div>
+            <div class="player-content">
+                <div class="player-info">
+                    <div class="track-details">
+                        <span class="track-name">guap</span>
+                    </div>
+                    <span class="track-status">[ stopped ]</span>
+                </div>
+                <div class="player-controls">
+                    <button id="play-pause">[ play ]</button>
+                    <input type="range" id="volume-slider" min="0" max="100" value="50">
+                </div>
+                <div class="progress-container">
+                    <div id="progress-bar"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Hidden Audio Player -->
+    <audio id="bgm" src="bgm.mp3" loop preload="auto"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
