@@ -19,6 +19,57 @@ document.addEventListener('DOMContentLoaded', () => {
         titleIndex = (titleIndex + 1) % titleText.length;
     }, 300);
 
+    // --- Custom Cursor & Binary Trail Logic ---
+    const cursor = document.getElementById('custom-cursor');
+    let lastTrailSpawn = 0;
+
+    document.addEventListener('mousemove', (e) => {
+        // Move the custom cursor
+        if (cursor) {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        }
+
+        // Spawn binary trail (throttle to avoid too many DOM elements)
+        const now = Date.now();
+        if (now - lastTrailSpawn > 50) { // Spawn every 50ms
+            spawnTrail(e.clientX, e.clientY);
+            lastTrailSpawn = now;
+        }
+    });
+
+    function spawnTrail(x, y) {
+        const particle = document.createElement('div');
+        particle.className = 'trail-particle';
+        particle.textContent = Math.random() > 0.5 ? '1' : '0';
+        particle.style.left = x + 'px';
+        particle.style.top = y + 'px';
+        
+        // Randomize slight offset for organic look
+        const offsetX = (Math.random() - 0.5) * 20;
+        const offsetY = (Math.random() - 0.5) * 20;
+        particle.style.transform = `translate(calc(-50% + ${offsetX}px), calc(-50% + ${offsetY}px))`;
+
+        document.body.appendChild(particle);
+
+        // Remove particle after animation completes
+        setTimeout(() => {
+            particle.remove();
+        }, 1000);
+    }
+
+    // Add hover effect to interactive elements
+    const interactiveElements = document.querySelectorAll('a, button, input[type="range"], .pfp-wrapper');
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            if (cursor) cursor.classList.add('cursor-hover');
+        });
+        el.addEventListener('mouseleave', () => {
+            if (cursor) cursor.classList.remove('cursor-hover');
+        });
+    });
+    // --- End Custom Cursor Logic ---
+
     // Audio status sync
     audio.onplay = () => {
         statusText.textContent = '[ playing ]';

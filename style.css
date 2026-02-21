@@ -11,7 +11,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    cursor: default; /* Replace with absolute cursor url if desired */
+    cursor: none !important; /* Hide default cursor */
 }
 
 body {
@@ -26,6 +26,46 @@ body {
     user-select: none;
     -webkit-user-select: none;
     position: relative;
+    cursor: none; /* Ensure body also hides cursor */
+}
+
+/* Custom Cursor */
+#custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    pointer-events: none; /* Let clicks pass through */
+    z-index: 10001; /* Above everything */
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+#custom-cursor.cursor-hover {
+    width: 30px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Binary Mouse Trail */
+.trail-particle {
+    position: fixed;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: bold;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    animation: fade-trail 1s forwards cubic-bezier(0.1, 0.8, 0.3, 1);
+}
+
+@keyframes fade-trail {
+    0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 0; transform: translate(-50%, -100%) scale(0.5); }
 }
 
 /* Moving Y2K Background */
