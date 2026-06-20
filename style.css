@@ -498,11 +498,99 @@ footer {
     transition: width 0.1s linear;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    main {
+        padding: 1.5rem;
+    }
+
+    header {
+        margin-bottom: 2rem;
+    }
+
+    .logo {
+        font-size: 1.6rem;
+    }
+
+    .roster {
+        gap: 1.5rem;
+    }
+
+    footer {
+        margin-top: 3rem;
+    }
+
     #music-player {
         bottom: 10px;
         left: 10px;
         right: 10px;
+        width: auto;
         min-width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 1rem;
+    }
+
+    header {
+        margin-bottom: 1.5rem;
+        gap: 1rem;
+    }
+
+    .header-logo {
+        width: 75px;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+    }
+
+    .roster {
+        gap: 1rem;
+    }
+
+    .member {
+        width: calc(50% - 0.5rem);
+    }
+
+    .pfp-wrapper {
+        width: 50px;
+        height: 50px;
+    }
+
+    .member-name {
+        font-size: 0.65rem;
+    }
+
+    #enter-btn {
+        font-size: 0.85rem;
+    }
+
+    footer {
+        margin-top: 2rem;
+        gap: 1rem;
+    }
+
+    .global-links {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    #music-player {
+        gap: 10px;
+        padding: 8px;
+        bottom: 8px;
+        left: 8px;
+        right: 8px;
+    }
+
+    .album-art-container {
+        width: 45px;
+        height: 45px;
+    }
+
+    .track-status {
+        display: none;
     }
 }
